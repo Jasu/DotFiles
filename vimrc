@@ -5,9 +5,37 @@ call pathogen#infect()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin on
 
+" Force terminal encoding. Is this wise..?
+set enc=utf8
+
+" Tab-completition enhanced
+set wildmenu 
+
+" Make sure paths work on Win32
+set shellslash 
+
+" Grep to display filename
+set grepprg=grep\ -nH\ $* 
+
+" Easy window navigation
+" Noremap to shadow NERDtree
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Reselect after indent
+vnoremap < <gv
+vnoremap > >gv
+
+" w!! sudo-writes.
+cmap w!! w !sudo tee % >/dev/null
+
+" Disable all bells
 set noerrorbells
 set vb t_vb=
 
+" No backups / clutterfiles
 set nobackup
 set noswapfile
 
