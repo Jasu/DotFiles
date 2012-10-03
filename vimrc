@@ -74,6 +74,17 @@ set tabstop=2
 " Backspace works like backspace, needed for gvim on Windows at least
 set bs=2 
 
+" Fix NBSP on mac
+imap <a-space> <space>
+
+" Fix NBSP elsewhere
+if !has("win32")
+  au BufWritePre * let ma = Mark() | %!sed 's/\xC2\xA0/ /g'
+  au BufWritePre * exec ma
+  au BufWritePost * set nomod
+endif
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Display options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
