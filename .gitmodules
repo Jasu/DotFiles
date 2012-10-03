@@ -25,3 +25,6 @@
 [submodule "submodules/sourcecodepro"]
 	path = submodules/sourcecodepro
 	url = https://github.com/ryanmcilmoyl/sourceCodePro-Powerline.git
+[submodule "submodules/ack"]
+	path = submodules/ack
+	url = https://github.com/mileszs/ack.vim.git
