@@ -111,7 +111,12 @@ if has("gui_running")
     behave mswin 
   endif
 else
-  colorscheme torte
+
+  if &t_Co == 256
+    colorscheme zenburn
+  else
+    colorscheme torte
+  endif
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
