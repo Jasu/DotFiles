@@ -177,6 +177,9 @@ au! BufNewFile,BufReadPre,BufRead,BufReadPost *.inc set filetype=php
 " Java
 au BufNewFile,BufReadPost *.java set shiftwidth=4|:set tabstop=4
 
+" Squirrel
+au BufNewFile,BufRead *.nut setf squirrel
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Alternate
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
