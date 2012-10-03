@@ -1,0 +1,145 @@
+#Class 
+snippet cl
+	class ${1:`Filename('$1', 'name')`}${2}
+	{
+		public:
+			${3}
+	};
+#Class w/ ctor
+snippet cc
+	class ${1:`Filename('$1', 'name')`}${2}
+	{
+		public:
+			$1(${3});
+			${4}
+	};
+#Class w/ dtor
+snippet cd
+	class ${1:`Filename('$1', 'name')`}${2}
+	{
+		public:
+			~$1();
+			${3}
+	};
+#Class w/ virtual dtor
+snippet cvd
+	class ${1:`Filename('$1', 'name')`}${2}
+	{
+		public:
+			virtual ~$1();
+			${3}
+	};
+#Class w/ ctor & dtor
+snippet ccd
+	class ${1:`Filename('$1', 'name')`}${2}
+	{
+		public:
+			$1(${3});
+			~$1();
+			${4}
+	};
+#Class w/ ctor & virtual dtor
+snippet ccvd
+	class ${1:`Filename('$1', 'name')`}${2}
+	{
+		public:
+			$1(${3});
+			virtual ~$1();
+			${4}
+	};
+
+#Namespace
+snippet ns
+	namespace ${1:`Filename('$1', 'name')`}
+	{
+		${2}
+	}
+#Include guard
+snippet ig
+	#ifndef ${1:}
+	#define $1
+
+	${2}
+
+	#endif
+
+#Include this
+snippet i
+	#include "${1:`Filename('$1.h')`}"${2}
+#Include system
+snippet I
+	#include <${1:`Filename('$1.h')`}>${2}
+#Ctor
+snippet ct
+	${1:`Filename('$1', 'name')`}::$1(${2})
+	{${3}
+	}${4}
+#Ctor w/ initializer list
+snippet cti
+	${1:`Filename('$1', 'name')`}::$1(${2})
+		: ${3}
+	{${4}
+	}${5}
+#Dtor
+snippet dt
+	${1:`Filename('$1', 'name')`}::~$1()
+	{${2}
+	}${3}
+#if
+snippet if
+	if (${1})
+	{
+		${2}
+	}${3}
+#else
+snippet el
+	else
+	{
+		${1}
+	}${2}
+snippet wh
+	while (${1})
+	{
+		${2}
+	}${3}
+snippet for
+	for (${1}; ${2}; ${3})
+	{
+		${4}
+	}${5}
+snippet do
+	do
+	{
+		${1}
+	}
+	while (${2});
+	${3}
+#Doxygen
+snippet dx
+	/**
+	 * @brief ${1}
+	 */${2}
+#Long Doxygen
+snippet dox
+	/**
+	 * @brief ${1}
+	 * 
+	 * ${2}
+	 */${3}
+#Doxygen todo
+snippet todo
+	/**
+	 * @todo ${1}
+	 */${2}
+#Filename
+snippet f
+	`Filename('$1', 'name')`
+#Scope
+snippet s
+	`Filename('$1', 'name')`::
+#Shared pointer
+snippet p
+	boost::shared_ptr<${1}> ${2}
+#Shared pointer with initialization
+snippet pm
+	boost::shared_ptr<${1:}> ${2} = boost::make_shared<$1>(${3});${4}

@@ -207,3 +207,9 @@ cnoreabbrev Sex NERDTree
 cnoreabbrev Ex NERDTree
 " Show NERDTree on startup
 autocmd VimEnter * NERDTree
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Snipmate
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:snippets_dir = $HOME."/.vim/snippets"
+
