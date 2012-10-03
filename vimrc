@@ -27,10 +27,17 @@ nnoremap <C-l> <C-w>l
 vnoremap < <gv
 vnoremap > >gv
 
+" Move between wrapped lines
+nnoremap j gj
+nnoremap k gk
+
 " Put scandinavian letters to use
 map å ^
 map ö <C-b>
 map ä <C-f>
+
+" Comma = leader
+let mapleader=","
 
 " Y works like other capitals
 map Y y$
@@ -76,6 +83,18 @@ set bs=2
 " Fix NBSP on mac
 imap <a-space> <space>
 
+" Dragging lines around
+if has("gui_macvim")
+  set macmeta
+endif
+
+noremap <A-j> :m+<CR>
+noremap <A-k> :m-2<CR>
+inoremap <A-j> <Esc>:m+<CR>
+inoremap <A-k> <Esc>:m-2<CR>
+vnoremap <A-j> :m'>+<CR>gv
+vnoremap <A-k> :m-2<CR>gv
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Display options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -88,8 +107,10 @@ set ruler
 set showmatch 
 " Show statusbar
 set laststatus=2
-"Show + before each wrapped line
+" Show + before each wrapped line
 set showbreak=+ 
+" Color 80th column
+set colorcolumn=80
 
 if has("gui_running")
   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
