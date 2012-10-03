@@ -4,3 +4,6 @@
 [submodule "submodules/fugitive"]
 	path = submodules/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule "submodules/colorsamplerpack"]
+	path = submodules/colorsamplerpack
+	url = https://github.com/vim-scripts/Color-Sampler-Pack.git
