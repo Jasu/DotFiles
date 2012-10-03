@@ -159,6 +159,25 @@ au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertLeave * hi StatColor guibg=#95e454 guifg=black ctermbg=lightgreen ctermfg=black
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Filetype options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CMake
+au! BufNewFile,BufReadPre,BufRead,BufReadPost CMake* set filetype=cmake
+
+" C/C++
+au BufNewFile,BufReadPre,BufRead,BufReadPost *.cpp,*.cpp.*,*.h,*.h.*,*.hpp,*.hxx,*.cxx,*.c set cindent 
+
+" PHP
+" Drupal modules and install files
+au! BufNewFile,BufReadPre,BufRead,BufReadPost *.module set filetype=php
+au! BufNewFile,BufReadPre,BufReadPost *.install set filetype=php
+" PHP includes
+au! BufNewFile,BufReadPre,BufRead,BufReadPost *.inc set filetype=php
+
+" Java
+au BufNewFile,BufReadPost *.java set shiftwidth=4|:set tabstop=4
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Alternate
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <C-a> :A<return>
@@ -174,3 +193,17 @@ let g:alternateExtensions_M = "H,h,HPP,hpp"
 let g:alternateExtensions_mm = "h,H,hpp,HPP"
 let g:alternateExtensions_MM = "H,h,HPP,hpp"
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERDTree
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+cnoreabbrev N NERDTree
+" Make VIM CWD follow NerdTree:
+let g:NERDTreeChDirMode = 2 
+" Show hidden files (to allow .vimrc edinting...)
+let g:NERDTreeShowHidden = 1 
+let g:NERDTreeWinSize = 40 
+" Replace NetRW commands
+cnoreabbrev Sex NERDTree
+cnoreabbrev Ex NERDTree
+" Show NERDTree on startup
+autocmd VimEnter * NERDTree
