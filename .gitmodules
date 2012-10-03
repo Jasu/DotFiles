@@ -19,3 +19,9 @@
 [submodule "submodules/matchit"]
 	path = submodules/matchit
 	url = https://github.com/vim-scripts/matchit.zip.git
+[submodule "submodules/powerline"]
+	path = submodules/powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "submodules/sourcecodepro"]
+	path = submodules/sourcecodepro
+	url = https://github.com/ryanmcilmoyl/sourceCodePro-Powerline.git
