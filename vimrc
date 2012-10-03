@@ -101,7 +101,7 @@ if has("gui_running")
   set go=m 
   "Hide toolbar in OS X Lion fullscreen mode (go=m is insufficient)
   autocmd VimResized * set toolbar=
-  set guifont=Source Code Pro for Powerline:h11
+  set guifont=Monaco:h11
   if has("win32")
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " Windows options
@@ -117,13 +117,6 @@ else
   else
     colorscheme torte
   endif
-endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Powerline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("gui_running")
-  let g:Powerline_symbols = 'fancy'
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

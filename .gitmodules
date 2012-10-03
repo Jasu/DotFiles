@@ -22,9 +22,6 @@
 [submodule "submodules/powerline"]
 	path = submodules/powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
-[submodule "submodules/sourcecodepro"]
-	path = submodules/sourcecodepro
-	url = https://github.com/ryanmcilmoyl/sourceCodePro-Powerline.git
 [submodule "submodules/ack"]
 	path = submodules/ack
 	url = https://github.com/mileszs/ack.vim.git
