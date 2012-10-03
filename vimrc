@@ -1,5 +1,4 @@
-call pathogen#infect()
-
+call pathogen#infect() 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General usability
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -166,9 +165,10 @@ let g:NERDTreeChDirMode = 2
 " Show hidden files (to allow .vimrc edinting...)
 let g:NERDTreeShowHidden = 1 
 let g:NERDTreeWinSize = 40 
+let g:NERDTreeDirArrows = 0 
 " Replace NetRW commands
-cnoreabbrev Sex NERDTree
-cnoreabbrev Ex NERDTree
+cnoreabbrev Sex silent! exe 'silent! spl '.expand("%:p:h") 
+cnoreabbrev Ex silent! exe 'silent! e '.expand("%:p:h") 
 " Show NERDTree on startup
 autocmd VimEnter * NERDTree
 
