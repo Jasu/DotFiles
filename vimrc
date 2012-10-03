@@ -6,6 +6,9 @@ call pathogen#infect()
 set noerrorbells
 set vb t_vb=
 
+set nobackup
+set noswapfile
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Editing options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
