@@ -3,6 +3,9 @@ call pathogen#infect()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General usability
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype plugin on
+syntax on
+
 set noerrorbells
 set vb t_vb=
 
