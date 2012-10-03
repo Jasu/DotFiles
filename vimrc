@@ -28,6 +28,14 @@ nnoremap <C-l> <C-w>l
 vnoremap < <gv
 vnoremap > >gv
 
+" Put scandinavian letters to use
+map å ^
+map ö <C-b>
+map ä <C-f>
+
+" Y works like other capitals
+map Y y$
+
 " w!! sudo-writes.
 cmap w!! w !sudo tee % >/dev/null
 
@@ -39,13 +47,32 @@ set vb t_vb=
 set nobackup
 set noswapfile
 
+" Hilight search
+set hls 
+" Incremental search
+set incsearch 
+" Ignore case
+set ignorecase 
+
+" Search timeout
+autocmd cursorhold * set nohlsearch 
+nnoremap n :set hlsearch<cr>n
+nnoremap N :set hlsearch<cr>N
+nnoremap / :set hlsearch<cr>/
+nnoremap ? :set hlsearch<cr>?
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Editing options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set smartindent
+
+" Tab = 2 spaces
 set expandtab 
 set shiftwidth=2
 set tabstop=2
+
+" Backspace works like backspace, needed for gvim on Windows at least
+set bs=2 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Display options
@@ -69,6 +96,9 @@ if has("gui_running")
   colorscheme eclipse
   "Hide the icons
   set go=m 
+  "Hide toolbar in OS X Lion fullscreen mode (go=m is insufficient)
+  autocmd VimResized * set toolbar=
+  set guifont=monospace\ 11
   if has("win32")
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " Windows options
