@@ -7,3 +7,6 @@
 [submodule "submodules/colorsamplerpack"]
 	path = submodules/colorsamplerpack
 	url = https://github.com/vim-scripts/Color-Sampler-Pack.git
+[submodule "submodules/a"]
+	path = submodules/a
+	url = https://github.com/vim-scripts/a.vim.git

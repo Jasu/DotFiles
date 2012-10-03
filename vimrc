@@ -157,3 +157,20 @@ endfunction
 
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertLeave * hi StatColor guibg=#95e454 guifg=black ctermbg=lightgreen ctermfg=black
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Alternate
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <C-a> :A<return>
+
+let g:alternateExtensions_h = "cpp,CPP,c,C,mm,MM,m,M"
+let g:alternateExtensions_H = "CPP,cpp,C,c,MM,mm,M,m"
+let g:alternateextensions_cpp = "h,H,hpp,HPP"
+let g:alternateextensions_CPP = "H,h,HPP,hpp"
+let g:alternateextensions_cc = "h,H,hpp,HPP"
+let g:alternateextensions_CC = "H,h,HPP,hpp"
+let g:alternateExtensions_m = "h,H,hpp,HPP"
+let g:alternateExtensions_M = "H,h,HPP,hpp"
+let g:alternateExtensions_mm = "h,H,hpp,HPP"
+let g:alternateExtensions_MM = "H,h,HPP,hpp"
+
