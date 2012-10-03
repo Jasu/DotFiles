@@ -49,5 +49,7 @@ if has("gui_running")
     " Windows-specific UI-behaviour for selections etc.
     behave mswin 
   endif
+else
+  colorscheme torte
 endif
 
