@@ -121,14 +121,23 @@ if has("gui_running")
   set go=m 
   "Hide toolbar in OS X Lion fullscreen mode (go=m is insufficient)
   autocmd VimResized * set toolbar=
-  set guifont=Monaco:h11
-  if has("win32")
+  if has("gui_macvim")
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " Mac options
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    set guifont=Monaco:h11
+  elseif has("win32")
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " Windows options
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     set guifont=Consolas:h9:cANSI
     " Windows-specific UI-behaviour for selections etc.
     behave mswin 
+  else
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " Linux options
+    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    set guifont=monospace\ 9
   endif
 else
 
