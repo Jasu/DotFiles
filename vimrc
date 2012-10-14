@@ -47,7 +47,7 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Disable all bells
 set noerrorbells
-set vb t_vb=
+set novb
 
 " No backups / clutterfiles
 set nobackup
@@ -84,10 +84,6 @@ set bs=2
 imap <a-space> <space>
 
 " Dragging lines around
-if has("gui_macvim")
-  set macmeta
-endif
-
 noremap <A-j> :m+<CR>
 noremap <A-k> :m-2<CR>
 inoremap <A-j> <Esc>:m+<CR>
@@ -116,7 +112,7 @@ if has("gui_running")
   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   " GUI options
   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-  colorscheme eclipse
+  colorscheme inkpot
   "Hide the icons
   set go=m 
   "Hide toolbar in OS X Lion fullscreen mode (go=m is insufficient)
