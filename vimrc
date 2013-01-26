@@ -67,6 +67,9 @@ nnoremap N :set hlsearch<cr>N
 nnoremap / :set hlsearch<cr>/
 nnoremap ? :set hlsearch<cr>?
 
+" Start scrolling when 5 lines from the end of screen
+set scrolloff=5
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Editing options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -202,4 +205,16 @@ autocmd VimEnter * NERDTree
 " Snipmate
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:snippets_dir = $HOME."/.vim/snippets"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ultisnips
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Tab jumps to next substitution, not C-j
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" Snippet directory - disregard default snippets
+let g:UltiSnipsSnippetDirectories=["snippets"]
 

@@ -25,3 +25,9 @@
 [submodule "submodules/ack"]
 	path = submodules/ack
 	url = https://github.com/mileszs/ack.vim.git
+[submodule "submodules/paren-crosshairs"]
+	path = submodules/paren-crosshairs
+	url = https://github.com/chreekat/vim-paren-crosshairs.git
+[submodule "submodules/ultisnips"]
+	path = submodules/ultisnips
+	url = https://github.com/vim-scripts/UltiSnips.git

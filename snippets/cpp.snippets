@@ -1,145 +1,463 @@
-#Class 
-snippet cl
-	class ${1:`Filename('$1', 'name')`}${2}
-	{
-		public:
-			${3}
-	};
-#Class w/ ctor
-snippet cc
-	class ${1:`Filename('$1', 'name')`}${2}
-	{
-		public:
-			$1(${3});
-			${4}
-	};
-#Class w/ dtor
-snippet cd
-	class ${1:`Filename('$1', 'name')`}${2}
-	{
-		public:
-			~$1();
-			${3}
-	};
-#Class w/ virtual dtor
-snippet cvd
-	class ${1:`Filename('$1', 'name')`}${2}
-	{
-		public:
-			virtual ~$1();
-			${3}
-	};
-#Class w/ ctor & dtor
-snippet ccd
-	class ${1:`Filename('$1', 'name')`}${2}
-	{
-		public:
-			$1(${3});
-			~$1();
-			${4}
-	};
-#Class w/ ctor & virtual dtor
-snippet ccvd
-	class ${1:`Filename('$1', 'name')`}${2}
-	{
-		public:
-			$1(${3});
-			virtual ~$1();
-			${4}
-	};
-
-#Namespace
-snippet ns
-	namespace ${1:`Filename('$1', 'name')`}
-	{
-		${2}
-	}
-#Include guard
 snippet ig
-	#ifndef ${1:}
-	#define $1
+#ifndef ${1:`!p  
+s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
+s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
+snip.rv = re.sub('\.', '_', s)`}
+#define $1
 
-	${2}
+$0
 
-	#endif
+#endif
 
-#Include this
+endsnippet
+
+snippet fcl
+#ifndef ${1:`!p  
+s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
+s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
+snip.rv = re.sub('\.', '_', s)`}
+#define $1
+
+$2
+
+class ${3:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  public:
+    $0
+};
+
+#endif
+
+snippet fclc
+#ifndef ${1:`!p  
+s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
+s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
+snip.rv = re.sub('\.', '_', s)`}
+#define $1
+
+$2
+
+class ${3:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  public:
+    $3($4);
+    $0
+};
+
+#endif
+
+endsnippet
+
+snippet fclcd
+#ifndef ${1:`!p  
+s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
+s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
+snip.rv = re.sub('\.', '_', s)`}
+#define $1
+
+$2
+
+class ${3:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  public:
+    $3($4);
+    ~$3();
+    $0
+};
+
+#endif
+
+endsnippet
+
+snippet fclcvd
+#ifndef ${1:`!p  
+s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
+s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
+snip.rv = re.sub('\.', '_', s)`}
+#define $1
+
+$2
+
+class ${3:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  public:
+    $3($4);
+    virtual ~$3();
+    $0
+};
+
+#endif
+
+endsnippet
+
+snippet fclcvd
+#ifndef ${1:`!p  
+s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
+s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
+snip.rv = re.sub('\.', '_', s)`}
+#define $1
+
+$2
+
+class ${3:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  public:
+    $3($4);
+    virtual ~$3();
+    $0
+};
+
+#endif
+
+endsnippet
+
+snippet fst
+#ifndef ${1:`!p  
+s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
+s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
+snip.rv = re.sub('\.', '_', s)`}
+#define $1
+
+$2
+
+struct ${3:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  $0
+};
+
+#endif
+
+snippet fstc
+#ifndef ${1:`!p  
+s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
+s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
+snip.rv = re.sub('\.', '_', s)`}
+#define $1
+
+$2
+
+struct ${3:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  $3($4);
+  $0
+};
+
+#endif
+
+endsnippet
+
+snippet fstcd
+#ifndef ${1:`!p  
+s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
+s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
+snip.rv = re.sub('\.', '_', s)`}
+#define $1
+
+$2
+
+struct ${3:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  $3($4);
+  ~$3();
+  $0
+};
+
+#endif
+
+endsnippet
+
+snippet fstcvd
+#ifndef ${1:`!p  
+s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
+s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
+snip.rv = re.sub('\.', '_', s)`}
+#define $1
+
+$2
+
+struct ${3:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  $3($4);
+  virtual ~$3();
+  $0
+};
+
+#endif
+
+endsnippet
+
+snippet fstcvd
+#ifndef ${1:`!p  
+s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
+s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
+snip.rv = re.sub('\.', '_', s)`}
+#define $1
+
+$2
+
+struct ${3:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  $3($4);
+  virtual ~$3();
+  $0
+};
+
+#endif
+
+endsnippet
+
+snippet ns
+namespace $1
+{
+  $0
+}
+endsnippet
 snippet i
-	#include "${1:`Filename('$1.h')`}"${2}
-#Include system
+#include "$1"
+$0
+endsnippet
+
 snippet I
-	#include <${1:`Filename('$1.h')`}>${2}
-#Ctor
-snippet ct
-	${1:`Filename('$1', 'name')`}::$1(${2})
-	{${3}
-	}${4}
-#Ctor w/ initializer list
-snippet cti
-	${1:`Filename('$1', 'name')`}::$1(${2})
-		: ${3}
-	{${4}
-	}${5}
-#Dtor
-snippet dt
-	${1:`Filename('$1', 'name')`}::~$1()
-	{${2}
-	}${3}
-#if
-snippet if
-	if (${1})
-	{
-		${2}
-	}${3}
-#else
-snippet el
-	else
-	{
-		${1}
-	}${2}
-snippet wh
-	while (${1})
-	{
-		${2}
-	}${3}
-snippet for
-	for (${1}; ${2}; ${3})
-	{
-		${4}
-	}${5}
-snippet do
-	do
-	{
-		${1}
-	}
-	while (${2});
-	${3}
-#Doxygen
-snippet dx
-	/**
-	 * @brief ${1}
-	 */${2}
-#Long Doxygen
-snippet dox
-	/**
-	 * @brief ${1}
-	 * 
-	 * ${2}
-	 */${3}
-#Doxygen todo
-snippet todo
-	/**
-	 * @todo ${1}
-	 */${2}
-#Filename
-snippet f
-	`Filename('$1', 'name')`
-#Scope
-snippet s
-	`Filename('$1', 'name')`::
-#Shared pointer
+#include <$1>
+$0
+endsnippet
+
+snippet d
+/**
+ * @brief $1
+ */
+$0
+endsnippet
+
+snippet D
+/**
+ * @brief $1
+ *
+ * $2
+ */
+$0
+endsnippet
+
+snippet a
+void set$1($2 value)
+{
+  m_$3 = value;
+}
+
+$2 get$1() const
+{
+  return m_$3;
+}
+endsnippet
+
+snippet ac
+void set$1($2 value)
+{
+  m_$3 = value;
+}
+
+const $2 & get$1() const
+{
+  return m_$3;
+}
+
+$2 & get$1()
+{
+  return m_$3;
+}
+endsnippet
+
+snippet g
+$1 & get$2()
+{
+  return $3;
+}
+endsnippet
+
+snippet gc
+$1 & get$2()
+{
+  return $3;
+}
+
+const $1 & get$2() const
+{
+  return $3;
+}
+endsnippet 
+
 snippet p
-	boost::shared_ptr<${1}> ${2}
-#Shared pointer with initialization
-snippet pm
-	boost::shared_ptr<${1:}> ${2} = boost::make_shared<$1>(${3});${4}
+boost::shared_ptr<$1>$0
+endsnippet
+
+snippet ms
+boost::make_shared<$1>($2)$0
+endsnippet
+
+snippet cl
+class ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  public:
+    $0
+};
+endsnippet
+
+snippet clc
+class ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  public:
+    $1($2);
+    $0
+};
+endsnippet
+
+snippet cld
+class ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  public:
+    ~$1();
+    $0
+};
+endsnippet
+
+snippet clvd
+class ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  public:
+    virtual ~$1();
+    $0
+};
+endsnippet
+
+snippet clcd
+class ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  public:
+    $1($2);
+    ~$1();
+    $0
+};
+endsnippet
+
+snippet clcvd
+class ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  public:
+    $1($2);
+    virtual ~$1();
+    $0
+};
+endsnippet
+
+snippet st
+struct ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  $0
+};
+endsnippet
+
+snippet stc
+struct ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  $1($2);
+  $0
+};
+endsnippet
+
+snippet std
+struct ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  ~$1();
+  $0
+};
+endsnippet
+
+snippet stvd
+struct ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  virtual ~$1();
+  $0
+};
+endsnippet
+
+snippet stcd
+struct ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
+{
+  $1($2);
+  ~$1();
+  $0
+};
+endsnippet
+
+snippet stcvd
+struct ${1:`!p snip.rv=re.sub('\\..*$', '', fn)`}
+{
+  $1($2);
+  virtual ~$1();
+  $0
+};
+endsnippet
+
+snippet s
+`!p snip.rv=re.sub('\\..*$', '', fn)`::$0
+endsnippet
+
+snippet ct
+${1:`!p snip.rv=re.sub('\\..*$', '', fn)`}::$1($2)
+{
+  $0
+}
+endsnippet
+
+
+snippet cti
+${1:`!p snip.rv=re.sub('\\..*$', '', fn)`}::$1($2)
+  : $3
+{
+  $0
+}
+endsnippet
+
+snippet dt
+${1:`!p snip.rv=re.sub('\\..*$', '', fn)`}::~$1($2)
+{
+  $0
+}
+endsnippet
+
+snippet 79
+///////////////////////////////////////////////////////////////////////////////
+endsnippet
+snippet //79
+///////////////////////////////////////////////////////////////////////////////
+endsnippet
+
+snippet fe
+for (std::$1::iterator it = $2.begin();
+  it != $2.end(); ++it)
+{
+  $0
+}
+endsnippet
+
+snippet fec
+for (std::$1::const_iterator it = $2.begin();
+  it != $2.end(); ++it)
+{
+  $0
+}
+endsnippet
+
+snippet test
+using namespace std;
+
+#include <iostream>
+$1
+
+int main(int argc, char ** argv)
+{
+  $0
+  return 0;
+}
+
+endsnippet
