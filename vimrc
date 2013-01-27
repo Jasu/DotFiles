@@ -4,6 +4,8 @@ call pathogen#infect()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin on
 
+set foldmethod=syntax
+
 " Force terminal encoding. Is this wise..?
 set enc=utf8
 
@@ -22,6 +24,11 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+nnoremap <space> za 
+vnoremap <space> za 
+nnoremap <S-space> zMzv 
+vnoremap <S-space> zMzv 
 
 " Reselect after indent
 vnoremap < <gv
@@ -157,11 +164,21 @@ au! BufNewFile,BufReadPre,BufRead,BufReadPost CMake* set filetype=cmake
 au BufNewFile,BufReadPre,BufRead,BufReadPost *.cpp,*.cpp.*,*.h,*.h.*,*.hpp,*.hxx,*.cxx,*.c set cindent 
 
 " PHP
-" Drupal modules and install files
-au! BufNewFile,BufReadPre,BufRead,BufReadPost *.module set filetype=php
-au! BufNewFile,BufReadPre,BufReadPost *.install set filetype=php
-" PHP includes
-au! BufNewFile,BufReadPre,BufRead,BufReadPost *.inc set filetype=php
+fun! PHPFold()
+  if (stridx(expand("<afile>"), "index.php") > -1 || stridx(expand("<afile>"), "default.php") > -1)
+    let g:DisableAutoPHPFolding=1
+    set filetype=php
+    set foldmethod=indent
+    set foldminlines=5
+  else
+    let g:DisableAutoPHPFolding=0
+    set filetype=php
+    set foldmethod=manual
+    EnableFastPHPFolds
+  endif
+endfun 
+
+au! BufNewFile,BufReadPre,BufRead,BufReadPost *.module,*.install,*.inc,*.php call PHPFold()
 
 " Java
 au BufNewFile,BufReadPost *.java set shiftwidth=4|:set tabstop=4
@@ -217,4 +234,3 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Snippet directory - disregard default snippets
 let g:UltiSnipsSnippetDirectories=["snippets"]
-

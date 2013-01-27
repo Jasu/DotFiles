@@ -31,3 +31,6 @@
 [submodule "submodules/ultisnips"]
 	path = submodules/ultisnips
 	url = https://github.com/vim-scripts/UltiSnips.git
+[submodule "submodules/phpfolding"]
+	path = submodules/phpfolding
+	url = https://github.com/vim-scripts/phpfolding.vim.git
