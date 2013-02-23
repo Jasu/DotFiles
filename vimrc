@@ -156,6 +156,7 @@ else
     set t_Co=256
   endif
   colorscheme torte
+  hi LineNr ctermbg=darkgray
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
