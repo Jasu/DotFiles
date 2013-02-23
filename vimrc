@@ -128,6 +128,7 @@ if has("gui_running")
   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   colorscheme inkpot
   hi Folded guibg=#332244
+  hi ColorColumn guibg=#332222
   "Hide the icons and the menu
   set go=
   "Hide toolbar in OS X Lion fullscreen mode (go=m is insufficient)
