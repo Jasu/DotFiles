@@ -34,3 +34,6 @@
 [submodule "bundle/detectindent"]
 	path = bundle/detectindent
 	url = https://github.com/ciaranm/detectindent.git
+[submodule "bundle/commentary"]
+	path = bundle/commentary
+	url = https://github.com/tpope/vim-commentary.git
