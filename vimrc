@@ -8,7 +8,7 @@ filetype plugin on
 
 set foldmethod=syntax
 set foldminlines=5
-set foldlevel=2
+set foldlevel=1
 
 " Force terminal encoding. Is this wise..?
 set enc=utf8
@@ -165,7 +165,7 @@ endif
 au! BufNewFile,BufReadPre,BufRead,BufReadPost CMake* set filetype=cmake
 
 " C/C++
-au BufNewFile,BufReadPre,BufRead,BufReadPost *.cpp,*.cpp.*,*.h,*.h.*,*.hpp,*.hxx,*.cxx,*.c set cindent 
+au BufNewFile,BufReadPre,BufRead,BufReadPost *.cpp,*.cpp.*,*.h,*.h.*,*.hpp,*.hxx,*.cxx,*.c set cindent|:set foldlevel=2
 
 " PHP
 fun! PHPFold()
@@ -173,12 +173,12 @@ fun! PHPFold()
     let g:DisableAutoPHPFolding=1
     set filetype=php
     set foldmethod=indent
-    set foldminlines=5
   else
     let g:DisableAutoPHPFolding=0
     set filetype=php
     set foldmethod=manual
     EnableFastPHPFolds
+    set foldlevel=1
   endif
 endfun 
 
