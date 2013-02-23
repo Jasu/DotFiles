@@ -123,8 +123,8 @@ if has("gui_running")
   " GUI options
   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   colorscheme inkpot
-  "Hide the icons
-  set go=m 
+  "Hide the icons and the menu
+  set go=
   "Hide toolbar in OS X Lion fullscreen mode (go=m is insufficient)
   autocmd VimResized * set toolbar=
   if has("gui_macvim")
