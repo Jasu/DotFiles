@@ -150,12 +150,10 @@ if has("gui_running")
     set guifont=monospace\ 9
   endif
 else
-
-  if &t_Co == 256
-    colorscheme zenburn
-  else
-    colorscheme torte
+  if $TERM == 'xterm'
+    set t_Co=256
   endif
+  colorscheme torte
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
