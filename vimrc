@@ -236,3 +236,10 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Snippet directory - disregard default snippets
 let g:UltiSnipsSnippetDirectories=["snippets"]
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" DetectIndent
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:detectindent_preferred_expandtab=1
+let g:detectindent_preferred_indent=2
+au BufReadPost * :DetectIndent
