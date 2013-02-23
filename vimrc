@@ -7,6 +7,8 @@ call pathogen#infect()
 filetype plugin on
 
 set foldmethod=syntax
+set foldminlines=5
+set foldlevel=2
 
 " Force terminal encoding. Is this wise..?
 set enc=utf8
