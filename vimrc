@@ -43,9 +43,9 @@ nnoremap j gj
 nnoremap k gk
 
 " Put scandinavian letters to use
-map å ^
-map ö <C-b>
-map ä <C-f>
+nmap å ^
+nmap ö <C-b>
+nmap ä <C-f>
 
 " Comma = leader
 let mapleader=","
