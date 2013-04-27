@@ -152,7 +152,7 @@ if has("gui_running")
     set guifont=monospace\ 9
   endif
 else
-  if $TERM == 'xterm'
+  if $TERM == 'xterm' || $TERM == 'screen'
     set t_Co=256
   endif
   colorscheme torte
@@ -222,6 +222,7 @@ cnoreabbrev Sex silent! exe 'silent! spl '.expand("%:p:h")
 cnoreabbrev Ex silent! exe 'silent! e '.expand("%:p:h") 
 " Show NERDTree on startup
 autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Snipmate
