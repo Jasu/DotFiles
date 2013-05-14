@@ -165,6 +165,9 @@ endif
 " CMake
 au! BufNewFile,BufReadPre,BufRead,BufReadPost CMake* set filetype=cmake
 
+" Markdown
+au! BufNewFile,BufReadPre,BufRead,BufReadPost *md set filetype=Markdown
+
 " C/C++
 au BufNewFile,BufReadPre,BufRead,BufReadPost *.cpp,*.cpp.*,*.h,*.h.*,*.hpp,*.hxx,*.cxx,*.c set cindent|:set foldlevel=2
 
@@ -213,6 +216,7 @@ let g:alternateExtensions_MM = "H,h,HPP,hpp"
 cnoreabbrev N NERDTree
 " Make VIM CWD follow NerdTree:
 let g:NERDTreeChDirMode = 2 
+let g:NERDTreeIgnore = ['\.pyc$', '^__pycache__$'] 
 " Show hidden files (to allow .vimrc edinting...)
 let g:NERDTreeShowHidden = 1 
 let g:NERDTreeWinSize = 40 
