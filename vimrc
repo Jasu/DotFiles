@@ -237,6 +237,8 @@ let g:snippets_dir = $HOME."/.vim/snippets"
 " Ultisnips
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let g:UltiSnipsNoPythonWarning=1
+
 " Tab jumps to next substitution, not C-j
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
