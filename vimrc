@@ -4,7 +4,7 @@ call pathogen#infect()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General usability
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-filetype plugin on
+filetype indent plugin on
 
 set foldmethod=syntax
 set foldminlines=5
@@ -162,6 +162,9 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Python
+au BufNewFile,BufReadPost *.py setlocal shiftwidth=4 tabstop=8 softtabstop=4
+
 " CMake
 au! BufNewFile,BufReadPre,BufRead,BufReadPost CMake* set filetype=cmake
 
