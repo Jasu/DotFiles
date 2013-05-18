@@ -250,3 +250,10 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " Snippet directory - disregard default snippets
 let g:UltiSnipsSnippetDirectories=["snippets"]
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Syntastic
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_balloons=0
+let g:syntastic_auto_jump=1
