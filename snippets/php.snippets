@@ -1,0 +1,431 @@
+snippet <
+<?php
+$0
+endsnippet
+
+snippet ns
+namespace $1;
+$0
+endsnippet
+
+snippet u
+use $1;
+$0
+endsnippet
+
+snippet /
+/**
+ * $1
+ */
+$0
+endsnippet
+
+snippet c
+class $1
+{
+  $0
+}
+endsnippet
+
+snippet ce
+class $1 extends $2
+{
+  $0
+}
+endsnippet
+
+snippet ci
+class $1 implements $2
+{
+  $0
+}
+endsnippet
+
+snippet cei
+class $1 extends $2 implements $3
+{
+  $0
+}
+endsnippet
+
+snippet co
+public function __construct($1) 
+{
+  $1
+}
+$0
+endsnippet
+
+snippet t
+\$this->
+endsnippet
+
+snippet p
+public $0
+endsnippet
+
+snippet pr
+private $0
+endsnippet
+
+snippet pro
+private $0
+endsnippet
+
+snippet pf
+public function $1($2) 
+{
+  $3
+}
+$0
+endsnippet
+
+snippet prf
+private function $1($2) 
+{
+  $3
+}
+$0
+endsnippet
+
+snippet prof
+protected function $1($2) 
+{
+  $3
+}
+$0
+endsnippet
+
+snippet g
+public function get$1()
+{
+  return \$this->${2:_${1/\w+/\l$0/}};
+}
+$0
+endsnippet
+
+snippet s
+public function set$1(\$value)
+{
+  \$this->${2:_${1/\w+/\l$0/}} = \$value;
+}
+$0
+endsnippet
+
+snippet gs
+public function get$1()
+{
+  return \$this->${2:_${1/\w+/\l$0/}};
+}
+
+public function set$1(\$value)
+{
+  \$this->$2 = \$value;
+}
+$0
+endsnippet
+
+snippet r
+return $0
+endsnippet
+
+snippet f
+foreach (\$${1:objects} as \$${2:o})
+{
+  $0
+}
+endsnippet
+
+snippet fkv
+foreach (\$${1:values} as \$${2:key} => \$${3:value})
+{
+  $0
+}
+endsnippet
+
+snippet k
+kala(\$$1);
+$0
+endsnippet
+
+snippet kd
+if (kala()) {kala(\$$1);die;}
+$0
+endsnippet
+
+snippet i?
+\$$1 = isset(${2:\$$1}) ? $2 : $3;
+$0
+endsnippet
+
+snippet 2o
+if (!is_object(\$$1)) \$$1 = (object)\$$1;
+$0
+endsnippet
+
+snippet 2a
+if (!is_array(\$$1)) \$$1 = (array)\$$1;
+$0
+endsnippet
+
+snippet d
+die(${1:""});
+$0
+endsnippet
+
+snippet i
+if ($1)
+{
+  $2
+}
+$0
+endsnippet
+
+snippet prm
+preg_match('#$1#', \$$2${3:, \$matches})
+endsnippet
+
+snippet prr
+\$$1 = preg_replace('#$2#', ${3:''}, \$${4:$1});
+$0
+endsnippet
+
+snippet iprm
+if (preg_match('#$1#', \$$2${3:, \$matches}))
+{
+  $4
+}
+$0
+endsnippet
+
+snippet e
+echo 
+endsnippet
+
+snippet es
+echo '$1';
+$0
+endsnippet
+
+snippet ev
+echo \$$1;
+$0
+endsnippet
+
+snippet x
+extends 
+endsnippet
+
+snippet im
+implements 
+endsnippet
+
+###############################################################################
+# Doctrine ORM snippets
+###############################################################################
+
+snippet @
+@ORM\\$0
+endsnippet
+
+snippet @
+@ORM\\$0
+endsnippet
+
+snippet @e
+@ORM\\Entity$0
+endsnippet
+
+snippet @t
+@ORM\\Table(name="$1")$0
+endsnippet
+
+snippet /@id
+/**
+ * @ORM\\Id
+ * @ORM\\Column(type="integer")
+ * @ORM\\GeneratedValue(strategy="AUTO")
+ */
+public $id;
+$0
+endsnippet
+
+snippet /@s
+/**
+ * @ORM\\Column(type="string", length=$1)
+ */
+public $2;
+$0
+endsnippet
+
+snippet /@i
+/**
+ * @ORM\\Column(type="integer")
+ */
+public $1;
+$0
+endsnippet
+
+#The regex converts camelcase into lowercase and underscores.
+snippet /@n1
+/**
+ * @ORM\\ManyToOne(targetEntity="$1", inversedBy="$2")
+ * @ORM\\JoinColumn(name="${1/([A-Z]?[a-z]*)([A-Z])?/\L$1(?2:_$2:)\E/g}_$3", referencedColumnName="${3:id}"${4:, onDelete="CASCADE"})
+ */
+public \$${1/([A-Z]?[a-z]*)([A-Z])?/\L$1(?2:_$2:)\E/g};
+$0
+endsnippet
+
+snippet /@1n
+/**
+ * @ORM\\OneToMany(targetEntity="$1", mappedBy="$2")
+ */
+public \$$3;
+$0
+endsnippet
+
+snippet /@11
+/**
+ * @ORM\\OneToOne(targetEntity="$1"${2:, mappedBy="$3"})
+ * @ORM\\JoinColumn(name="${1/([A-Z]?[a-z]*)([A-Z])?/\L$1(?2:_$2:)\E/g}_$4", referencedColumnName="${4:id}"${5:, onDelete="CASCADE"})
+ */
+public \$${1/([A-Z]?[a-z]*)([A-Z])?/\L$1(?2:_$2:)\E/g};
+$0
+endsnippet
+
+snippet @it
+@ORM\\InheritanceType("$1")$0
+endsnippet
+
+snippet @dc
+@ORM\\DiscriminatorColumn(name="$1", type="$2")$0
+endsnippet
+
+snippet @dm
+@ORM\\DiscriminatorMap({$1})$0
+endsnippet
+
+#Doctrine class
+snippet dc
+/**
+ * @ORM\\Entity
+ * @ORM\\Table(name="\`${1/([A-Z]?[a-z]*)([A-Z])?/\L$1(?2:_$2:)\E/g}\`")
+ */
+class $1
+{
+  /**
+   * @ORM\\Id
+   * @ORM\\Column(type="integer")
+   * @ORM\\GeneratedValue(strategy="AUTO")
+   */
+  public \$id;
+  $0
+}
+endsnippet
+
+#Doctrine class parent
+snippet dcp
+/**
+ * @ORM\\Entity
+ * @ORM\\Table(name="\`${1/([A-Z]?[a-z]*)([A-Z])?/\L$1(?2:_$2:)\E/g}\`")
+ * @ORM\\InheritanceType("${2:JOINED}")
+ * @ORM\\DiscriminatorColumn(name="${3:type}", type="${4:string}")
+ * @ORM\\DiscriminatorMap({
+ *  $5
+ * })
+ */
+class $6
+{
+  /**
+   * @ORM\\Id
+   * @ORM\\Column(type="integer")
+   * @ORM\\GeneratedValue(strategy="AUTO")
+   */
+  public \$id;
+  $0
+}
+endsnippet
+
+#Doctrine class child
+snippet dcc
+/**
+ * @ORM\\Entity
+ * @ORM\\Table(name="${1/([A-Z]?[a-z]*)([A-Z])?/\L$1(?2:_$2:)\E/g}")
+ */
+class $1 extends $2
+{
+  $0
+}
+endsnippet
+
+
+#Doctrine file class
+snippet dfc
+<?php
+
+namespace $1;
+
+use Doctrine\\ORM\\Mapping as ORM;
+
+/**
+ * @ORM\\Entity
+ * @ORM\\Table(name="\`${2/([A-Z]?[a-z]*)([A-Z])?/\L$1(?2:_$2:)\E/g}\`")
+ */
+class $2
+{
+  /**
+   * @ORM\\Id
+   * @ORM\\Column(type="integer")
+   * @ORM\\GeneratedValue(strategy="AUTO")
+   */
+  public \$id;
+  $0
+}
+endsnippet
+
+#Doctrine file class parent
+snippet dfcp
+<?php
+
+namespace $1;
+
+use Doctrine\\ORM\\Mapping as ORM;
+
+/**
+ * @ORM\\Entity
+ * @ORM\\Table(name="\`${2/([A-Z]?[a-z]*)([A-Z])?/\L$1(?2:_$2:)\E/g}\`")
+ * @ORM\\InheritanceType("${3:JOINED}")
+ * @ORM\\DiscriminatorColumn(name="${4:type}", type="${5:string}")
+ * @ORM\\DiscriminatorMap({
+ *  "${6:DB value}" = "${7:Class name}",$8
+ * })
+ */
+class $2
+{
+  /**
+   * @ORM\\Id
+   * @ORM\\Column(type="integer")
+   * @ORM\\GeneratedValue(strategy="AUTO")
+   */
+  public \$id;
+  $0
+}
+endsnippet
+
+#Doctrine class child
+snippet dfcc
+<?php
+
+namespace $1;
+
+use Doctrine\\ORM\\Mapping as ORM;
+
+/**
+ * @ORM\\Entity
+ * @ORM\\Table(name="\`${3:${2/([A-Z]?[a-z]*)([A-Z])?/\L$1(?2:_$2:)\E/g}}\`")
+ */
+class $2 extends $4
+{
+  $0
+}
+endsnippet
