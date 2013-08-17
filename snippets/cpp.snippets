@@ -1,3 +1,20 @@
+snippet po
+#pragma once
+$0
+endsnippet
+
+snippet ib
+#include <boost/$1.hpp>$0
+endsnippet
+
+snippet iu
+#include <boost/utility.hpp>$0
+endsnippet
+
+snippet #if
+#include <boost/foreach.hpp>$0
+endsnippet
+
 snippet ig
 #ifndef ${1:`!p  
 s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
@@ -212,8 +229,40 @@ namespace $1
   $0
 }
 endsnippet
+
+snippet ns2
+namespace $1
+{
+  namespace $2
+  {
+    $0
+  }
+}
+endsnippet
+
+snippet ns3
+namespace $1
+{
+  namespace $2
+  {
+    namespace $3
+    {
+      $0
+    }
+  }
+}
+endsnippet
+
 snippet i
 #include "$1"
+$0
+endsnippet
+
+snippet if
+if ($1)
+{
+  $2
+}
 $0
 endsnippet
 
