@@ -1,3 +1,8 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Load modules
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nmap <Leader>dummy <Plug>FocusmodeToggle
 runtime! pathogen/autoload/pathogen.vim
 call pathogen#infect() 
 
@@ -5,6 +10,8 @@ call pathogen#infect()
 " General usability
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype indent plugin on
+
+let mapleader=","
 
 set foldmethod=syntax
 set foldminlines=5
@@ -47,8 +54,6 @@ nmap å ^
 nmap ö <C-b>
 nmap ä <C-f>
 
-" Comma = leader
-let mapleader=","
 
 " Y works like other capitals
 map Y y$
@@ -80,6 +85,8 @@ nnoremap ? :set hlsearch<cr>?
 
 " Start scrolling when 5 lines from the end of screen
 set scrolloff=5
+
+set cryptmethod=blowfish
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Editing options
@@ -256,4 +263,10 @@ let g:UltiSnipsSnippetDirectories=["snippets"]
 
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_balloons=0
-let g:syntastic_auto_jump=1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Focus
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nmap <Leader>f <Plug>FocusModeToggle
+let g:focusmode_width=120
