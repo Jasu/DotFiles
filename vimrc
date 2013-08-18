@@ -264,6 +264,9 @@ let g:UltiSnipsSnippetDirectories=["snippets"]
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_balloons=0
 let g:syntastic_php_checkers=['php']
+"Disable on C/C++, since syntastic does not know include paths.
+let g:syntastic_cpp_checkers=[]
+let g:syntastic_c_checkers=[]
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
