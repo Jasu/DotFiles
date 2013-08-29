@@ -1,21 +1,74 @@
-snippet po
+snippet po "" b
 #pragma once
 $0
 endsnippet
 
-snippet ib
-#include <boost/$1.hpp>$0
+snippet ib "" b
+#include <boost/$1.hpp>
+$0
 endsnippet
 
-snippet iu
-#include <boost/utility.hpp>$0
+snippet iu "" b
+#include <boost/utility.hpp>
+$0
 endsnippet
 
-snippet #if
-#include <boost/foreach.hpp>$0
+snippet ip "" b
+#include <boost/shared_ptr.hpp>
+$0
 endsnippet
 
-snippet ig
+snippet #if "" b
+#include <boost/foreach.hpp>
+$0
+endsnippet
+
+snippet iv "" b
+#include <vector>
+$0
+endsnippet
+
+snippet ii "" b
+#include <iostream>
+$0
+endsnippet
+
+snippet il "" b
+#include <list>
+$0
+endsnippet
+
+snippet ia "" b
+#include <algorithm>
+$0
+endsnippet
+
+snippet im "" b
+#include <cmath>
+$0
+endsnippet
+
+snippet #c "" b
+#ifndef $1
+# error "$1 is not defined.$2"
+#endif
+endsnippet
+
+snippet #cd "" b
+#ifndef $1
+# define $1 $2
+#endif
+endsnippet
+
+snippet ty "" b
+typedef 
+endsnippet
+
+snippet t
+template<$1> $0 
+endsnippet
+
+snippet ig "" b
 #ifndef ${1:`!p  
 s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
 s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
@@ -28,7 +81,7 @@ $0
 
 endsnippet
 
-snippet fcl
+snippet fcl "" b
 #ifndef ${1:`!p  
 s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
 s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
@@ -45,7 +98,7 @@ class ${3:`!p snip.rv=re.sub('\..*$', '', fn)`}
 
 #endif
 
-snippet fclc
+snippet fclc "" b
 #ifndef ${1:`!p  
 s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
 s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
@@ -65,7 +118,7 @@ class ${3:`!p snip.rv=re.sub('\..*$', '', fn)`}
 
 endsnippet
 
-snippet fclcd
+snippet fclcd "" b
 #ifndef ${1:`!p  
 s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
 s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
@@ -86,7 +139,7 @@ class ${3:`!p snip.rv=re.sub('\..*$', '', fn)`}
 
 endsnippet
 
-snippet fclcvd
+snippet fclcvd "" b
 #ifndef ${1:`!p  
 s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
 s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
@@ -107,7 +160,7 @@ class ${3:`!p snip.rv=re.sub('\..*$', '', fn)`}
 
 endsnippet
 
-snippet fclcvd
+snippet fclcvd "" b
 #ifndef ${1:`!p  
 s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
 s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
@@ -128,7 +181,7 @@ class ${3:`!p snip.rv=re.sub('\..*$', '', fn)`}
 
 endsnippet
 
-snippet fst
+snippet fst "" b
 #ifndef ${1:`!p  
 s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
 s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
@@ -144,7 +197,7 @@ struct ${3:`!p snip.rv=re.sub('\..*$', '', fn)`}
 
 #endif
 
-snippet fstc
+snippet fstc "" b
 #ifndef ${1:`!p  
 s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
 s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
@@ -163,7 +216,7 @@ struct ${3:`!p snip.rv=re.sub('\..*$', '', fn)`}
 
 endsnippet
 
-snippet fstcd
+snippet fstcd "" b
 #ifndef ${1:`!p  
 s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
 s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
@@ -183,7 +236,7 @@ struct ${3:`!p snip.rv=re.sub('\..*$', '', fn)`}
 
 endsnippet
 
-snippet fstcvd
+snippet fstcvd "" b
 #ifndef ${1:`!p  
 s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
 s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
@@ -203,7 +256,7 @@ struct ${3:`!p snip.rv=re.sub('\..*$', '', fn)`}
 
 endsnippet
 
-snippet fstcvd
+snippet fstcvd "" b
 #ifndef ${1:`!p  
 s = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', fn)
 s = re.sub('([a-z0-9])([A-Z])', r'\1_\2', s).upper()
@@ -223,14 +276,72 @@ struct ${3:`!p snip.rv=re.sub('\..*$', '', fn)`}
 
 endsnippet
 
-snippet ns
+snippet r "" b
+return 
+endsnippet
+
+snippet c
+const 
+endsnippet
+
+snippet fo "" b
+for ($1; $2; $3)
+{
+  $4
+}
+$0
+endsnippet
+
+snippet fi "" b
+for (${1:int} i = 0; i < $2; ++i)
+{
+  $3
+}
+$0
+endsnippet
+
+snippet fj "" b
+for (${1:int} j = 0; j < $2; ++j)
+{
+  $3
+}
+$0
+endsnippet
+
+snippet bfe "" b
+BOOST_FOREACH (${1:Eg. int i}, ${2:Eg. m_vector})
+{
+  $3
+}
+$0
+endsnippet
+
+snippet ve ""
+std::vector<$1>
+endsnippet
+
+snippet l ""
+std::list<$1>
+endsnippet
+
+snippet u "" b
+using $1;
+$0
+endsnippet
+
+snippet un "" b
+using namespace $1;
+$0
+endsnippet
+
+snippet ns "" b
 namespace $1
 {
   $0
 }
 endsnippet
 
-snippet ns2
+snippet ns2 "" b
 namespace $1
 {
   namespace $2
@@ -240,7 +351,7 @@ namespace $1
 }
 endsnippet
 
-snippet ns3
+snippet ns3 "" b
 namespace $1
 {
   namespace $2
@@ -253,12 +364,12 @@ namespace $1
 }
 endsnippet
 
-snippet i
+snippet i "" b
 #include "$1"
 $0
 endsnippet
 
-snippet if
+snippet if "" b
 if ($1)
 {
   $2
@@ -266,19 +377,19 @@ if ($1)
 $0
 endsnippet
 
-snippet I
+snippet I "" b
 #include <$1>
 $0
 endsnippet
 
-snippet d
+snippet d "" b
 /**
  * @brief $1
  */
 $0
 endsnippet
 
-snippet D
+snippet D "" b
 /**
  * @brief $1
  *
@@ -287,43 +398,14 @@ snippet D
 $0
 endsnippet
 
-snippet a
-void set$1($2 value)
-{
-  m_$3 = value;
-}
-
-$2 get$1() const
-{
-  return m_$3;
-}
-endsnippet
-
-snippet ac
-void set$1($2 value)
-{
-  m_$3 = value;
-}
-
-const $2 & get$1() const
-{
-  return m_$3;
-}
-
-$2 & get$1()
-{
-  return m_$3;
-}
-endsnippet
-
-snippet g
+snippet g "" b
 $1 & get$2()
 {
   return $3;
 }
 endsnippet
 
-snippet gc
+snippet gc "" b
 $1 & get$2()
 {
   return $3;
@@ -335,15 +417,15 @@ const $1 & get$2() const
 }
 endsnippet 
 
-snippet p
+snippet p "" w
 boost::shared_ptr<$1>$0
 endsnippet
 
-snippet ms
+snippet ms "" w
 boost::make_shared<$1>($2)$0
 endsnippet
 
-snippet cl
+snippet cl "" b
 class ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 {
   public:
@@ -351,7 +433,7 @@ class ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 };
 endsnippet
 
-snippet clc
+snippet clc "" b
 class ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 {
   public:
@@ -360,7 +442,7 @@ class ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 };
 endsnippet
 
-snippet cld
+snippet cld "" b
 class ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 {
   public:
@@ -369,7 +451,7 @@ class ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 };
 endsnippet
 
-snippet clvd
+snippet clvd "" b
 class ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 {
   public:
@@ -378,7 +460,7 @@ class ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 };
 endsnippet
 
-snippet clcd
+snippet clcd "" b
 class ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 {
   public:
@@ -388,7 +470,7 @@ class ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 };
 endsnippet
 
-snippet clcvd
+snippet clcvd "" b
 class ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 {
   public:
@@ -398,14 +480,14 @@ class ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 };
 endsnippet
 
-snippet st
+snippet st "" b
 struct ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 {
   $0
 };
 endsnippet
 
-snippet stc
+snippet stc "" b
 struct ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 {
   $1($2);
@@ -413,7 +495,7 @@ struct ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 };
 endsnippet
 
-snippet std
+snippet std "" b
 struct ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 {
   ~$1();
@@ -421,7 +503,7 @@ struct ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 };
 endsnippet
 
-snippet stvd
+snippet stvd "" b
 struct ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 {
   virtual ~$1();
@@ -429,7 +511,7 @@ struct ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 };
 endsnippet
 
-snippet stcd
+snippet stcd "" b
 struct ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 {
   $1($2);
@@ -438,7 +520,7 @@ struct ${1:`!p snip.rv=re.sub('\..*$', '', fn)`}
 };
 endsnippet
 
-snippet stcvd
+snippet stcvd "" b
 struct ${1:`!p snip.rv=re.sub('\\..*$', '', fn)`}
 {
   $1($2);
@@ -451,7 +533,22 @@ snippet s
 `!p snip.rv=re.sub('\\..*$', '', fn)`::$0
 endsnippet
 
-snippet ct
+snippet f "" b
+$1 `!p snip.rv=re.sub('\\..*$', '', fn)`::$2($3)
+{
+  $4
+}
+$0
+endsnippet
+snippet v "" b
+void `!p snip.rv=re.sub('\\..*$', '', fn)`::$1($2)
+{
+  $3
+}
+$0
+endsnippet
+
+snippet ct "" b
 ${1:`!p snip.rv=re.sub('\\..*$', '', fn)`}::$1($2)
 {
   $0
@@ -459,7 +556,7 @@ ${1:`!p snip.rv=re.sub('\\..*$', '', fn)`}::$1($2)
 endsnippet
 
 
-snippet cti
+snippet cti "" b
 ${1:`!p snip.rv=re.sub('\\..*$', '', fn)`}::$1($2)
   : $3
 {
@@ -467,21 +564,21 @@ ${1:`!p snip.rv=re.sub('\\..*$', '', fn)`}::$1($2)
 }
 endsnippet
 
-snippet dt
+snippet dt "" b
 ${1:`!p snip.rv=re.sub('\\..*$', '', fn)`}::~$1($2)
 {
   $0
 }
 endsnippet
 
-snippet 79
+snippet 79 "" b
 ///////////////////////////////////////////////////////////////////////////////
 endsnippet
 snippet //79
 ///////////////////////////////////////////////////////////////////////////////
 endsnippet
 
-snippet fe
+snippet fe "" b
 for (std::$1::iterator it = $2.begin();
   it != $2.end(); ++it)
 {
@@ -489,7 +586,7 @@ for (std::$1::iterator it = $2.begin();
 }
 endsnippet
 
-snippet fec
+snippet fec "" b
 for (std::$1::const_iterator it = $2.begin();
   it != $2.end(); ++it)
 {
@@ -497,10 +594,10 @@ for (std::$1::const_iterator it = $2.begin();
 }
 endsnippet
 
-snippet test
-using namespace std;
-
+snippet test "" b
 #include <iostream>
+
+using namespace std;
 $1
 
 int main(int argc, char ** argv)
@@ -509,4 +606,8 @@ int main(int argc, char ** argv)
   return 0;
 }
 
+endsnippet
+
+snippet todo "" b
+/** @todo $1 */
 endsnippet
