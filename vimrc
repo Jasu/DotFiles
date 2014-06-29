@@ -38,10 +38,6 @@ filetype indent plugin on
 
 let mapleader=","
 
-set foldmethod=syntax
-set foldminlines=5
-set foldlevel=1
-
 " Force terminal encoding. Is this wise..?
 set enc=utf8
 
@@ -156,7 +152,6 @@ if has("gui_running")
   " GUI options
   """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   colorscheme inkpot
-  hi Folded guibg=#332244
   hi ColorColumn guibg=#332222
   "Hide the icons and the menu
   set go=
@@ -259,7 +254,8 @@ let g:syntastic_c_checkers=[]
 " Vimfiler
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable NetRW, since somehow it gets sometimes opened even if Vimfiler is the default.
-let g:loaded_netrwPlugin = 1
+"let g:loaded_netrwPlugin = 1
+
 let g:vimfiler_as_default_explorer = 1
 
 " Key mappings
@@ -285,6 +281,7 @@ fun! s:InitVimfiler()
   nmap <buffer> <Enter>  <Plug>(vimfiler_mark_current_line)
 
   " Non-default mappings
+  nmap <buffer> C  <Plug>(vimfiler_smart_l)
   nmap <buffer> o <Plug>(vimfiler_edit_file)
   nmap <buffer> u <Plug>(vimfiler_switch_to_parent_directory)
   nmap <buffer> <Esc> <Plug>(vimfiler_exit)
@@ -293,7 +290,7 @@ fun! s:InitVimfiler()
   set nonu
 endfun
 
-imap <C-o> :VimFiler -split -horizontal -buffer-name=aux<CR>
+"imap <C-o> :VimFiler -split -horizontal -buffer-name=aux<CR>
 nmap <C-o> :VimFiler -split -horizontal -buffer-name=aux<CR>
 cnoreabbrev Sex silent! exe 'silent! spl '.expand("%:p:h") 
 cnoreabbrev Ex silent! exe 'silent! e '.expand("%:p:h") 
@@ -321,6 +318,7 @@ autocmd VimEnter * call AirlineInit()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:signify_vcs_list = ['git']
 let g:signify_sign_delete            = '-'
+let g:signify_sign_overwrite = 0
 highlight DiffAdd           cterm=bold ctermfg=119 ctermbg=28
 highlight DiffDelete        cterm=bold ctermfg=174 ctermbg=88
 highlight DiffChange        cterm=bold ctermfg=33 ctermbg=17
