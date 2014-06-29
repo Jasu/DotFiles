@@ -186,7 +186,8 @@ else
 
   colorscheme lucius
 
-  hi ColorColumn ctermbg=234
+  hi LineNr ctermfg=241 ctermbg=235
+  hi ColorColumn ctermbg=235
   set cursorline
   hi Comment ctermfg=138
   hi clear CursorLine
@@ -286,6 +287,7 @@ fun! s:InitVimfiler()
   " Non-default mappings
   nmap <buffer> o <Plug>(vimfiler_edit_file)
   nmap <buffer> u <Plug>(vimfiler_switch_to_parent_directory)
+  nmap <buffer> <Esc> <Plug>(vimfiler_exit)
   "nmap <buffer> <Space> <Plug>(vimfiler_split_edit_file)
 
   set nonu
@@ -341,5 +343,6 @@ fun! s:InitUnite()
   " Enable navigation with control-j and control-k in insert mode
   imap <buffer> <C-j>   <Plug>(unite_select_next_line)
   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+  nmap <buffer> <Esc>   <Plug>(unite_exit)
 endfun
 
