@@ -257,6 +257,7 @@ let g:syntastic_c_checkers=[]
 "let g:loaded_netrwPlugin = 1
 
 let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_safe_mode_by_default = 0
 
 " Key mappings
 let g:vimfiler_no_default_key_mappings = 1
@@ -277,7 +278,8 @@ fun! s:InitVimfiler()
   nmap <buffer> h  <Plug>(vimfiler_smart_h)
   nmap <buffer> \  <Plug>(vimfiler_switch_to_root_directory)
   nmap <buffer> ~  <Plug>(vimfiler_switch_to_home_directory)
-  nmap <buffer> <Space>  <Plug>(vimfiler_mark_current_line)
+  nmap <buffer> <Space>  <Plug>(vimfiler_toggle_mark_current_line)
+  nmap <buffer> * <Plug>(vimfiler_toggle_mark_all_lines)
   nmap <buffer> <Enter>  <Plug>(vimfiler_mark_current_line)
 
   " Non-default mappings
