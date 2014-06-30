@@ -1,0 +1,7 @@
+[user]
+	email = jasper.mattsson@gmail.com
+	name = Jasper Mattsson
+[push]
+	default = simple
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ai) %C(bold blue)<%an>%Creset' --abbrev-commit

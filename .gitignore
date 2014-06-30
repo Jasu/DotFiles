@@ -1,4 +1,4 @@
 .netrwhist
 .DS_Store
-bundle/*
-!bundle/Vundle.vim
+vim/bundle/*
+!vim/bundle/Vundle.vim

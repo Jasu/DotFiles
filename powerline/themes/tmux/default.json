@@ -1,0 +1,25 @@
+{
+	"default_module": "powerline.segments.common",
+	"segments": {
+		"right": [
+      {
+        "name":"network_load",
+        "args": {
+          "sent_format":" ⬆{value} ",
+          "recv_format":"⬇{value} "
+        }
+      },
+			{
+				"name": "system_load",
+				"priority": 50
+			},
+			{
+				"name": "date",
+				"args": {
+					"format": "%Y-%m-%d %H:%M",
+					"istime": true
+				}
+			}
+		]
+	}
+}
