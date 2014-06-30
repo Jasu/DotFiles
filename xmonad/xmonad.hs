@@ -17,7 +17,7 @@ manageVimb = className =? "Vimb" --> doF W.focusDown
 
 main = do
   trayer <- spawn "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --tint 0x882233 --height 20"
-  dzen_time <- spawn "while true; do date \"+%d.%m.%Y %H:%M:%S\";sleep 1; done | dzen2 -fn 'Monaco:size=10' -xs 0 -x 1456 -y 0 -w 272 -h 20 -e 'onstart=lower'"
+  dzen_time <- spawn "sleep 3; while true; do date \"+%d.%m.%Y %H:%M:%S\";sleep 1; done | dzen2 -fn 'Monaco:size=10' -xs 0 -x 1456 -y 0 -w 272 -h 20 -e 'onstart=lower'"
   dzen_main <- spawnPipe "dzen2 -fn 'Monaco:size=10' -xs 0 -w 1456 -h 20 -ta l -e 'onstart=lower'"
   xmonad $ defaultConfig { 
     -- Border can be 0, since fadeInActive is used.
