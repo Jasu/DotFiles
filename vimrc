@@ -276,6 +276,7 @@ fun! s:InitVimfiler()
   nmap <buffer> gg <Plug>(vimfiler_cursor_top)
   nmap <buffer> c  <Plug>(vimfiler_copy_file)
   nmap <buffer> m  <Plug>(vimfiler_move_file)
+  nmap <buffer> a  <Plug>(vimfiler_new_file)
   nmap <buffer> r  <Plug>(vimfiler_rename_file)
   nmap <buffer> d  <Plug>(vimfiler_delete_file)
   nmap <buffer> l  <Plug>(vimfiler_smart_l)
@@ -305,9 +306,11 @@ cnoreabbrev Ex silent! exe 'silent! e '.expand("%:p:h")
 " Airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline_symbols = {}
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␤'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+  let g:airline_symbols.linenr = ''
+  let g:airline_symbols.branch = ''
+
 let g:airline_theme = 'bubblegum'
 
 let g:airline#extensions#whitespace#enabled = 0
