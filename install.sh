@@ -2,7 +2,7 @@
 pushd .
 cd `dirname $0`
 
-for xname in tmux.conf xinitrc xmonad zshrc vim gitconfig; do
+for xname in tmux.conf xinitrc xmonad zshrc vim gitconfig Xdefaults; do
   if [ ! -e ~/.$xname ]; then
     echo "Linking '~/.$xname'."
     ln -s `pwd`/$xname ~/.$xname
