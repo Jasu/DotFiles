@@ -249,6 +249,10 @@ let g:syntastic_php_checkers=['php']
 "Disable on C/C++, since syntastic does not know include paths.
 let g:syntastic_cpp_checkers=[]
 let g:syntastic_c_checkers=[]
+let g:syntastic_c_checkers=[]
+"Disable for SCSS, since the checker can't find external libraries for
+"compass.
+let g:syntastic_scss_checkers=[]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vimfiler
