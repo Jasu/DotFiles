@@ -285,12 +285,14 @@ fun! s:InitVimfiler()
   nmap <buffer> ~  <Plug>(vimfiler_switch_to_home_directory)
   nmap <buffer> <Space>  <Plug>(vimfiler_toggle_mark_current_line)
   nmap <buffer> * <Plug>(vimfiler_toggle_mark_all_lines)
-  nmap <buffer> <Enter>  <Plug>(vimfiler_mark_current_line)
+  nmap <buffer> <Enter>  <Plug>(vimfiler_execute)
 
   " Non-default mappings
   nmap <buffer> C  <Plug>(vimfiler_smart_l)
-  nmap <buffer> o <Plug>(vimfiler_edit_file)
+  nmap <buffer> o <Plug>(vimfiler_execute)
   nmap <buffer> u <Plug>(vimfiler_switch_to_parent_directory)
+  nmap <buffer> p <Plug>(vimfiler_switch_to_project_directory)
+  nmap <buffer> y <Plug>(vimfiler_yank_full_path)
   nmap <buffer> <Esc> <Plug>(vimfiler_exit)
   "nmap <buffer> <Space> <Plug>(vimfiler_split_edit_file)
 
