@@ -1,5 +1,4 @@
 #!/bin/sh
-pushd .
 cd `dirname $0`
 
 for xname in tmux.conf xinitrc xmonad zshrc vim gitconfig Xdefaults; do
@@ -20,4 +19,3 @@ for dirname in lilyterm powerline; do
   fi
 done
 
-popd
