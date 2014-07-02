@@ -338,6 +338,7 @@ highlight DiffChange        cterm=bold ctermfg=33 ctermbg=17
 " Unite
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:unite_prompt='» '
+let g:unite_source_history_yank_enable = 1
 
 let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts = '--line-numbers --nogroup --nocolor'
@@ -346,6 +347,7 @@ let g:unite_source_grep_recursive_opt = ''
 nnoremap <silent> <C-g> :Unite -buffer-name=aux -default-action=split -silent grep:. <CR>
 nnoremap <silent> <C-i> :Unite -buffer-name=aux -default-action=split -start-insert file_rec/async:!<cr>
 nnoremap <silent> <C-u> :Unite -buffer-name=aux outline<cr>
+nnoremap <silent> <C-p> :Unite -buffer-name=aux history/yank<cr>
 
 autocmd FileType unite call s:InitUnite()
 fun! s:InitUnite()
