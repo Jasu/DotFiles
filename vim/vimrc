@@ -266,6 +266,8 @@ let g:vimfiler_safe_mode_by_default = 0
 " Key mappings
 let g:vimfiler_no_default_key_mappings = 1
 
+let g:vimfiler_execute_file_list = { "_": "vim"}
+
 autocmd FileType vimfiler call s:InitVimfiler()
 fun! s:InitVimfiler()
   let g:vimfiler_no_default_key_mappings = 1
@@ -296,7 +298,7 @@ fun! s:InitVimfiler()
   nmap <buffer> <Esc> <Plug>(vimfiler_exit)
   "nmap <buffer> <Space> <Plug>(vimfiler_split_edit_file)
 
-  set nonu
+  setlocal nonu
 endfun
 
 "imap <C-o> :VimFiler -split -horizontal -buffer-name=aux<CR>
