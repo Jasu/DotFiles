@@ -54,7 +54,8 @@ export PATH="$PATH:$HOME/utils/lokki-atrium-fetch"
 export PATH="$PATH:$HOME/utils/lokki-toggl-fetch"
 export PATH="$PATH:$HOME/.cabal/bin"
 export PATH="$PATH:/opt/sublime_text"
-export PATH="$PATH:$HOME/.composer/vendor/drush/drush/"
+#export PATH="$PATH:$HOME/.composer/vendor/drush/drush/"
+export PATH="$PATH:$HOME/drush/"
 
 alias -s cpp=vim
 alias -s c=vim
@@ -85,6 +86,7 @@ alias tail='tail -n $((`tput lines` - 2))'
 headcut() { head -n $((`tput lines` - 2)) "$@" | cut -c1-`tput cols` }
 tailcut() { tail -n $((`tput lines` - 2)) "$@" | cut -c1-`tput cols` }
 json() { cat "$@" | python -m json.tool } 
+al() { ag --color "$@" 2>&1 | less }
 alias p=pman
 
 alias ....="cd ../../.."
