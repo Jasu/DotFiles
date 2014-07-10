@@ -122,6 +122,8 @@ set bs=2
 " Fix NBSP on mac
 imap <a-space> <space>
 
+set pastetoggle=§
+
 " Dragging lines around
 noremap <A-j> :m+<CR>
 noremap <A-k> :m-2<CR>
@@ -209,6 +211,9 @@ au! BufNewFile,BufReadPre,BufRead,BufReadPost *md set filetype=Markdown
 
 " Java
 au BufNewFile,BufReadPost *.java set shiftwidth=4|:set tabstop=4
+
+" Php
+au BufNewFile,BufReadPost *.inc,*.module,*.install,*.test,*.profile,*.phps,*.phtml,*.view,*.engine set filetype=php
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Alternate
