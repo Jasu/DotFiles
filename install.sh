@@ -1,8 +1,7 @@
 #!/bin/sh
-pushd .
 cd `dirname $0`
 
-for xname in tmux.conf xinitrc xmonad zshrc vim gitconfig Xdefaults; do
+for xname in tmux.conf xinitrc xmonad zshrc vim vimrc gitconfig Xdefaults; do
   if [ ! -e ~/.$xname ]; then
     echo "Linking '~/.$xname'."
     ln -s `pwd`/$xname ~/.$xname
@@ -20,4 +19,3 @@ for dirname in lilyterm powerline; do
   fi
 done
 
-popd
