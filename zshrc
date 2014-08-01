@@ -102,6 +102,9 @@ alias .5="cd ../../../../.."
 alias .6="cd ../../../../../.."
 
 alias v="vim -o"
+alias vi=vim
+
+alias ml="make 2>&1|less"
 
 #bindkey -v
 #bindkey "^R" history-incremental-search-backward
