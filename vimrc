@@ -308,8 +308,8 @@ endfun
 
 "imap <C-o> :VimFiler -split -horizontal -buffer-name=aux<CR>
 nmap <C-o> :VimFiler -split -horizontal -buffer-name=aux<CR>
-cnoreabbrev Sex silent! exe 'silent! spl '.expand("%:p:h") 
-cnoreabbrev Ex silent! exe 'silent! e '.expand("%:p:h") 
+com! -nargs=? -complete=dir Sexplore exe 'silent! spl '.("<args>" == "" ? expand('%:p:h') : "<args>")
+com! -nargs=? -complete=dir Explore exe 'silent! e '.("<args>" == "" ? expand('%:p:h') : "<args>")
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Airline
