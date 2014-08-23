@@ -263,7 +263,8 @@ let g:syntastic_scss_checkers=[]
 " Vimfiler
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable NetRW, since somehow it gets sometimes opened even if Vimfiler is the default.
-"let g:loaded_netrwPlugin = 1
+" NetRW messes buffer settings and overrides commands.
+let g:loaded_netrwPlugin = 1
 
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
@@ -274,42 +275,51 @@ let g:vimfiler_no_default_key_mappings = 1
 let g:vimfiler_execute_file_list = { "_": "vim"}
 
 autocmd FileType vimfiler call s:InitVimfiler()
+
 fun! s:InitVimfiler()
+  " Workaround vimfiler bug, where it says that buffer has been modified.
+  "setlocal bufhidden
+  "setlocal nowrite
+  set noreadonly
   let g:vimfiler_no_default_key_mappings = 1
   " Default Vimfiler mappings (redefined, since the defaults are disabled.)
-  nmap <buffer> .  <Plug>(vimfiler_toggle_visible_ignore_files)
-  nmap <buffer> j  <Plug>(vimfiler_loop_cursor_down)
-  nmap <buffer> k  <Plug>(vimfiler_loop_cursor_up)
-  nmap <buffer> gg <Plug>(vimfiler_cursor_top)
-  nmap <buffer> c  <Plug>(vimfiler_copy_file)
-  nmap <buffer> m  <Plug>(vimfiler_move_file)
-  nmap <buffer> a  <Plug>(vimfiler_new_file)
-  nmap <buffer> r  <Plug>(vimfiler_rename_file)
-  nmap <buffer> d  <Plug>(vimfiler_delete_file)
-  nmap <buffer> l  <Plug>(vimfiler_smart_l)
-  nmap <buffer> h  <Plug>(vimfiler_smart_h)
-  nmap <buffer> \  <Plug>(vimfiler_switch_to_root_directory)
-  nmap <buffer> ~  <Plug>(vimfiler_switch_to_home_directory)
-  nmap <buffer> <Space>  <Plug>(vimfiler_toggle_mark_current_line)
-  nmap <buffer> * <Plug>(vimfiler_toggle_mark_all_lines)
-  nmap <buffer> <Enter>  <Plug>(vimfiler_execute)
+  nmap <buffer><silent> .  <Plug>(vimfiler_toggle_visible_ignore_files)
+  nmap <buffer><silent> j  <Plug>(vimfiler_loop_cursor_down)
+  nmap <buffer><silent> k  <Plug>(vimfiler_loop_cursor_up)
+  nmap <buffer><silent> <Down> <Plug>(vimfiler_loop_cursor_down)
+  nmap <buffer><silent> <Up> <Plug>(vimfiler_loop_cursor_up)
+  nmap <buffer><silent> gg <Plug>(vimfiler_cursor_top)
+  nmap <buffer><silent> c  <Plug>(vimfiler_copy_file)
+  nmap <buffer><silent> m  <Plug>(vimfiler_move_file)
+  nmap <buffer><silent> a  <Plug>(vimfiler_new_file)
+  nmap <buffer><silent> r  <Plug>(vimfiler_rename_file)
+  nmap <buffer><silent> d  <Plug>(vimfiler_delete_file)
+  nmap <buffer><silent> l  <Plug>(vimfiler_smart_l)
+  nmap <buffer><silent> h  <Plug>(vimfiler_smart_h)
+  nmap <buffer><silent> <Right>  <Plug>(vimfiler_smart_l)
+  nmap <buffer><silent> <Left>  <Plug>(vimfiler_smart_h)
+  nmap <buffer><silent> \ <Plug>(vimfiler_switch_to_root_directory)
+  nmap <buffer><silent> ~ <Plug>(vimfiler_switch_to_home_directory)
+  nmap <buffer><silent> <Space>  <Plug>(vimfiler_toggle_mark_current_line)
+  nmap <buffer><silent> * <Plug>(vimfiler_toggle_mark_all_lines)
+  nmap <buffer><silent> <Enter>  <Plug>(vimfiler_execute)
 
   " Non-default mappings
-  nmap <buffer> C  <Plug>(vimfiler_smart_l)
-  nmap <buffer> o <Plug>(vimfiler_execute)
-  nmap <buffer> u <Plug>(vimfiler_switch_to_parent_directory)
-  nmap <buffer> p <Plug>(vimfiler_switch_to_project_directory)
-  nmap <buffer> y <Plug>(vimfiler_yank_full_path)
-  nmap <buffer> <Esc> <Plug>(vimfiler_exit)
-  "nmap <buffer> <Space> <Plug>(vimfiler_split_edit_file)
+  nmap <buffer><silent> C <Plug>(vimfiler_smart_l)
+  nmap <buffer><silent> o <Plug>(vimfiler_execute)
+  nmap <buffer><silent> u <Plug>(vimfiler_switch_to_parent_directory)
+  nmap <buffer><silent> p <Plug>(vimfiler_switch_to_project_directory)
+  nmap <buffer><silent> y <Plug>(vimfiler_yank_full_path)
+  nmap <buffer><silent> <Esc> <Plug>(vimfiler_exit)
 
   setlocal nonu
 endfun
 
 "imap <C-o> :VimFiler -split -horizontal -buffer-name=aux<CR>
 nmap <C-o> :VimFiler -split -horizontal -buffer-name=aux<CR>
-com! -nargs=? -complete=dir Sexplore exe 'silent! spl '.("<args>" == "" ? expand('%:p:h') : "<args>")
-com! -nargs=? -complete=dir Explore exe 'silent! e '.("<args>" == "" ? expand('%:p:h') : "<args>")
+"com! -nargs=? -complete=dir Sexplore exe 'silent! VimFiler -split -horizontal -buffer-name=aux '.("<args>" == "" ? expand('%:p:h') : "<args>")
+com! -nargs=? -complete=dir Sexplore exe 'silent! VimFilerSplit -horizontal '.("<args>" == "" ? expand('%:p:h') : "<args>")
+com! -nargs=? -complete=dir Explore exe 'silent! VimFiler '.("<args>" == "" ? expand('%:p:h') : "<args>")
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Airline
