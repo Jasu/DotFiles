@@ -3,14 +3,20 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocp
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
+if has("win32")
+  set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
+  call vundle#begin('$USERPROFILE/vimfiles/bundle/')
+else
+  set rtp+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
+endif
 
-call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'a.vim'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/Align'
 Plugin 'Colour-Sampler-Pack'
 Plugin 'tpope/vim-fugitive'
@@ -168,7 +174,7 @@ if has("gui_running")
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " Windows options
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    set guifont=Consolas:h9:cANSI
+    set guifont=Menlo_for_Powerline:h9:cANSI
     " Windows-specific UI-behaviour for selections etc.
     behave mswin 
   else
